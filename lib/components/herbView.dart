@@ -4,8 +4,14 @@ class HerbView extends StatefulWidget {
   final String amount;
   final String name;
   final String quantity;
+  final Color light;
+  final Color dark;
   HerbView(
-      {@required this.amount, @required this.name, @required this.quantity});
+      {@required this.amount,
+      @required this.name,
+      @required this.quantity,
+      @required this.light,
+      @required this.dark});
 
   @override
   _HerbViewState createState() => _HerbViewState();
@@ -15,12 +21,14 @@ class _HerbViewState extends State<HerbView> {
   @override
   Widget build(BuildContext context) {
     return new Material(
-        child: Container(
+      color: Colors.white,
+        child: InkWell(
+          onTap: () => {},
+          child: Container(
             height: 310.73,
             width: 179.72,
             padding: EdgeInsets.only(top: 7, bottom: 18),
             decoration: BoxDecoration(
-                color: Colors.white,
                 borderRadius: BorderRadius.all(Radius.circular(22.74)),
                 boxShadow: [
                   BoxShadow(
@@ -37,7 +45,7 @@ class _HerbViewState extends State<HerbView> {
                     width: 162.4,
                     height: 211.12,
                     decoration: BoxDecoration(
-                      color: const Color(0xff2B4632),
+                      color: widget.light,
                       border: Border.all(
                           color: Color.fromRGBO(23, 38, 27, 0.36), width: 2.17),
                       borderRadius: BorderRadius.all(Radius.circular(22.74)),
@@ -54,7 +62,7 @@ class _HerbViewState extends State<HerbView> {
                               width: 64.96,
                               height: 38.98,
                               decoration: BoxDecoration(
-                                  color: const Color(0xff253C2C),
+                                  color: widget.dark,
                                   borderRadius: BorderRadius.only(
                                     topRight: Radius.circular(22.74),
                                     bottomLeft: Radius.circular(22.74),
@@ -104,6 +112,6 @@ class _HerbViewState extends State<HerbView> {
                       ),
                     )),
               ],
-            )));
+     ) )));
   }
 }
