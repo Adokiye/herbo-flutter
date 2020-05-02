@@ -21,46 +21,53 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<String> navItems = ['all', 'ache', 'malaria', 'sugar', 'typhoid'];
-  String isRecognized = 'all';
+  List<String> navItems = ['All', 'Ache', 'Malaria', 'Sugar', 'Typhoid'];
+  String isRecognized = 'All';
   String name;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffF9F9F9),
       body: Stack(
         children: <Widget>[
           SafeArea(
-              child:  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Padding(
-                          padding: EdgeInsets.symmetric(vertical: 40.0),
-                          child: Text('''How are 
+              child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                  padding: EdgeInsets.symmetric(
+                      vertical: 40.0,
+                      horizontal: MediaQuery.of(context).size.width * 0.065),
+                  child: Text('''How are 
                 you feeling?''',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w700, fontSize: 33))),
-                      Container(
-                        margin: EdgeInsets.only(bottom: 27.0),
-                        child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            shrinkWrap: true,
-                            itemCount: navItems.length,
-                            itemBuilder: (BuildContext ctxt, int index) {
-                              return new InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      isRecognized = navItems[index];
-                                    });
-                                  },
-                                  child: NavItem(
-                                    isRecognized: isRecognized == navItems[index]?true:false,
-                                    name: isRecognized,
-                                    ));
-                            }),
-                      ),
-                    ],
-                  ))
+                      style: TextStyle(
+                          fontWeight: FontWeight.w700, fontSize: 33))),
+              Container(
+                width: double.infinity,
+                margin: EdgeInsets.only(
+                    bottom: 27.0,
+                    left: MediaQuery.of(context).size.width * 0.065),
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemCount: navItems.length,
+                    itemBuilder: (BuildContext ctxt, int index) {
+                      return new InkWell(
+                          onTap: () {
+                            setState(() {
+                              isRecognized = navItems[index];
+                            });
+                          },
+                          child: NavItem(
+                            isRecognized:
+                                isRecognized == navItems[index] ? true : false,
+                            name: isRecognized,
+                          ));
+                    }),
+              ),
+            ],
+          ))
         ],
       ),
     );
