@@ -1,18 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:herbo/components/navItem.dart';
+import 'package:herbo/models/Herb.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
 
   final String title;
 
@@ -22,6 +14,36 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<String> navItems = ['All', 'Ache', 'Malaria', 'Sugar', 'Typhoid'];
+  List<Herb> herbs = [
+    Herb(
+        name: 'Agbo Jedi',
+        amount: 'N3,000',
+        light: Color(0xff2B4632),
+        dark: Color(0xff253C2C),
+        quantity: '3',
+        image: 'assets/images/agbo.png'),
+    Herb(
+        name: 'Opa Eyin',
+        amount: 'N2,500',
+        light: Color(0xff442B2B),
+        dark: Color(0xff352222),
+        quantity: '12',
+        image: 'assets/images/opaEyin.png'),
+    Herb(
+        name: 'Opa Eyin',
+        amount: 'N3,000',
+        light: Color(0xffF3E1C7),
+        dark: Color(0xffE1C9A3),
+        quantity: '5',
+        image: 'assets/images/opaEyin.png'),
+    Herb(
+        name: 'Epa Ijebu',
+        amount: 'N4,000',
+        light: Color(0xff302943),
+        dark: Color(0xff282239),
+        quantity: '4',
+        image: 'assets/images/epaIjebu.png'),
+  ];
   String isRecognized = 'All';
   String name;
 

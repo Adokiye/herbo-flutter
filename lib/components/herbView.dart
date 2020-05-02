@@ -6,12 +6,14 @@ class HerbView extends StatefulWidget {
   final String quantity;
   final Color light;
   final Color dark;
+  final String image;
   HerbView(
       {@required this.amount,
       @required this.name,
       @required this.quantity,
       @required this.light,
-      @required this.dark});
+      @required this.dark,
+      @required this.image});
 
   @override
   _HerbViewState createState() => _HerbViewState();
@@ -82,7 +84,7 @@ class _HerbViewState extends State<HerbView> {
                           ],
                         ),
                         Image.asset(
-                          'assets/images/agbo.png',
+                          widget.image,
                           width: 179.72,
                           height: 256.75,
                           fit: BoxFit.contain,
